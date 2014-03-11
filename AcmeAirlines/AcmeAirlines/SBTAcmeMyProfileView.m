@@ -309,7 +309,16 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
             if (indexPath.row == 0) {
-                contentLabel.text = [NSString stringWithFormat:@"(%@)", self.myProfile.email];
+                if (self.myProfile.email != nil) {
+                    contentLabel.text = [NSString stringWithFormat:@"(%@)", self.myProfile.email];
+                } else {
+                    NSString *notAvailable = NSLocalizedStringWithDefaultValue(@"NOT_AVAILABLE",
+                              nil,
+                              [NSBundle mainBundle],
+                              @"Not available",
+                              @"Not available");
+                    contentLabel.text = notAvailable;
+                }
             } else if (indexPath.row == 1) {
                 if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
                     cell.accessoryType = UITableViewCellAccessoryNone;
