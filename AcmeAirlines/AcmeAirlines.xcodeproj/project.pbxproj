@@ -147,10 +147,10 @@
 		07110B6B189FB75E00AAD859 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		07110B6D189FE7FE00AAD859 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/xib.strings; sourceTree = "<group>"; };
 		07110B6F189FE81D00AAD859 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/xib.strings; sourceTree = "<group>"; };
-		07110B71189FF15500AAD859 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/LoginView.xib; sourceTree = "<group>"; };
-		07110B73189FF16900AAD859 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/LoginView.xib; sourceTree = "<group>"; };
-		07110B75189FF19400AAD859 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ComposeUpdate.xib; sourceTree = "<group>"; };
-		07110B77189FF19500AAD859 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/ComposeUpdate.xib; sourceTree = "<group>"; };
+		07110B71189FF15500AAD859 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LoginView.xib; sourceTree = "<group>"; };
+		07110B73189FF16900AAD859 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/LoginView.xib; sourceTree = "<group>"; };
+		07110B75189FF19400AAD859 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ComposeUpdate.xib; sourceTree = "<group>"; };
+		07110B77189FF19500AAD859 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/ComposeUpdate.xib; sourceTree = "<group>"; };
 		075DE144187C52CD0099BA87 /* iOSSBTK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSSBTK.xcodeproj; path = ../iOSSBTK/iOSSBTK.xcodeproj; sourceTree = "<group>"; };
 		3D09FEBC17C28210006B5159 /* SBTAcmeMainViewCommonOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTAcmeMainViewCommonOperations.h; sourceTree = "<group>"; };
 		3D09FEBD17C28210006B5159 /* SBTAcmeMainViewCommonOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTAcmeMainViewCommonOperations.m; sourceTree = "<group>"; };

@@ -19,11 +19,16 @@
 NSString* const DEFAULT_ENDPOINT = @"connections";
 #warning TEST_BASE_URL NEEDS TO BE FILLED TO ENABLE UNIT TESTING
 NSString* const TEST_BASE_URL = @"https://sbtdev.swg.usma.ibm.com:444";
+//NSString* const TEST_BASE_URL = @"https://apps.collabservnext.com";
 NSString* const TEST_ACME_BASE_URL = @"http://acmeairlines:8080";
 NSString* const TEST_ACCOUNT_EMAIL = @"fadams@renovations.com";
+//NSString* const TEST_ACCOUNT_EMAIL = @"mark_wallace@mckinseydemo.com";
 NSString* const TEST_ACCOUNT_PASSWORD = @"passw0rd";
+//NSString* const TEST_ACCOUNT_PASSWORD = @"password1";
 NSString* const TEST_ACCOUNT_USERID = @"0F19F8AD-37EA-6033-8525-7BBF005634B5";
+//NSString* const TEST_ACCOUNT_USERID = @"20000264";
 NSString* const TEST_ACCOUNT_DISPLAY_NAME = @"Frank Adams";
+//NSString* const TEST_ACCOUNT_DISPLAY_NAME = @"Mark Wallace";
 NSString* const TEST_FILE_NAME = @"test_file.txt";
 NSString* const TEST_FODLER_NAME = @"TESTFOLDER_IOS";
 NSString* const TEST_FILE_COMMENT = @"File comment iOS";

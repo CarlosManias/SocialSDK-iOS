@@ -18,7 +18,7 @@
 #import "SBTConnectionsClientService.h"
 #import "SBTCredentialStore.h"
 #import "SBTConstants.h"
-#import "SBTConnectionsActivityStreamService.h"
+#import "SBTConnectionsCommunityService.h"
 #import "FBLog.h"
 #import "SBTHttpClient.h"
 
@@ -64,6 +64,20 @@
         return;
     }
     
+    SBTConnectionsCommunityService *cs = [[SBTConnectionsCommunityService alloc] init];
+    [cs getPublicCommunitiesWithParameters:nil
+                                   success:^(NSMutableArray * list) {
+                                              completionHandler(nil);
+                                          } failure:^(NSError * error) {
+                                              if (IS_DEBUGGING_SBTK)
+                                                  [FBLog log:[NSString stringWithFormat:@"%@", [error description]] from:self];
+                                              [SBTCredentialStore removeWithKey:IBM_CREDENTIAL_USERNAME];
+                                              [SBTCredentialStore removeWithKey:IBM_CREDENTIAL_PASSWORD];
+                                              
+                                              completionHandler(error);
+                                          }];
+    
+    /*
     SBTConnectionsActivityStreamService *actService = [[SBTConnectionsActivityStreamService alloc] initWithEndPointName:self.endPointName];
     [actService getMyActionableViewWithParameters:nil
                                           success:^(NSMutableArray * list) {
@@ -76,6 +90,7 @@
                                               
                                               completionHandler(error);
                                           }];
+     */
 }
 
 - (void) logout {

@@ -27,3 +27,6 @@ NSInteger const WIDTH_FOR_IPAD = 768;
 NSInteger const MARGIN_FOR_IPAD_GROUPED_TABLEVIEW = 45;
 NSInteger const MARGIN_FOR_IPHONE_GROUPED_TABLEVIEW = 10;
 NSString *IBM_CREDENTIAL_ACME_URL = @"IBM_CREDENTIAL_ACME_URL";
+
+NSString const *PHIL_userid = @"20000259"; //Phils
+NSString const *MARK_userid = @"20000264"; //Marks

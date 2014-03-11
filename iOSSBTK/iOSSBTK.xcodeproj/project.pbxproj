@@ -58,6 +58,8 @@
 		07DA5991187C651700363E5D /* FBLog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D824CDC17AFF67C000AD1EF /* FBLog.h */; };
 		07DA5992187C651700363E5D /* SBTUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D824D1A17AFF67D000AD1EF /* SBTUtils.h */; };
 		07DA5993187C651700363E5D /* SBTConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D824D0A17AFF67C000AD1EF /* SBTConstants.h */; };
+		07FDB8C218CDD1FB00198305 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FDB8C118CDD1FB00198305 /* SystemConfiguration.framework */; };
+		07FDB8C418CDD49400198305 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FDB8C318CDD49400198305 /* MobileCoreServices.framework */; };
 		3D824C4B17AFECB8000AD1EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D824C4A17AFECB8000AD1EF /* Foundation.framework */; };
 		3D824D1E17AFF67D000AD1EF /* FBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D824CDD17AFF67C000AD1EF /* FBLog.m */; };
 		3D824D1F17AFF67D000AD1EF /* SBTActivityStreamActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D824CDF17AFF67C000AD1EF /* SBTActivityStreamActor.m */; };
@@ -194,6 +196,8 @@
 
 /* Begin PBXFileReference section */
 		07F83918189A68090022CFFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		07FDB8C118CDD1FB00198305 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		07FDB8C318CDD49400198305 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3D824C4717AFECB8000AD1EF /* libiOSSBTK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSSBTK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D824C4A17AFECB8000AD1EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3D824C4E17AFECB8000AD1EF /* iOSSBTK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSSBTK-Prefix.pch"; sourceTree = "<group>"; };
@@ -329,6 +333,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07FDB8C418CDD49400198305 /* MobileCoreServices.framework in Frameworks */,
+				07FDB8C218CDD1FB00198305 /* SystemConfiguration.framework in Frameworks */,
 				3D824C4B17AFECB8000AD1EF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +378,8 @@
 		3D824C4917AFECB8000AD1EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07FDB8C318CDD49400198305 /* MobileCoreServices.framework */,
+				07FDB8C118CDD1FB00198305 /* SystemConfiguration.framework */,
 				3DCCFBE217B3E5DA0063C199 /* Security.framework */,
 				3DCCFBE017B3E5B20063C199 /* CoreGraphics.framework */,
 				3D824F1317B0162C000AD1EF /* libxml2.dylib */,

@@ -64,6 +64,11 @@
                               [NSBundle mainBundle],
                               @"Connections Profile",
                               @"Connections Profile"),
+                         NSLocalizedStringWithDefaultValue(@"MY_COLLEAGUES",
+                              nil,
+                              [NSBundle mainBundle],
+                              @"My Colleagues",
+                              @"My Colleagues"),
                          NSLocalizedStringWithDefaultValue(@"REPORT_TO_CHAIN",
                               nil,
                               [NSBundle mainBundle],
@@ -123,7 +128,7 @@
     else if (section == 1)
         return 3;
     else
-        return 3;
+        return 4;
 }
 
 - (CGFloat) tableView:(UITableView *) tableView heightForHeaderInSection:(NSInteger) section
@@ -403,10 +408,12 @@
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            [self getReportToChain];
+            [self getMyColleagues];
         } else if (indexPath.row == 1) {
-            [self getSameManager];
+            [self getReportToChain];
         } else if (indexPath.row == 2) {
+            [self getSameManager];
+        } else if (indexPath.row == 3) {
             [self getPeopleManaged];
         }
     }
@@ -554,7 +561,7 @@
     
     UIAlertView *progressView = [SBTAcmeUtils showProgressBar];
     SBTConnectionsProfileService *profileService = [[SBTConnectionsProfileService alloc] init];
-    [profileService getReportToChainWithUserId:self.myProfile.email parameters:nil success:^(NSMutableArray *list) {
+    [profileService getReportToChainWithUserId:self.myProfile.userId parameters:nil success:^(NSMutableArray *list) {
         if (list != nil)
             [self openProfileListViewWithList:list];
         
@@ -588,7 +595,7 @@
                                   @"OK Common label");
     UIAlertView *progressView = [SBTAcmeUtils showProgressBar];
     SBTConnectionsProfileService *profileService = [[SBTConnectionsProfileService alloc] init];
-    [profileService getReportToChainWithUserId:self.myProfile.email parameters:nil success:^(NSMutableArray *list) {
+    [profileService getReportToChainWithUserId:self.myProfile.userId parameters:nil success:^(NSMutableArray *list) {
         if (list != nil && [list count] >= 2) {
             SBTConnectionsProfile *manager = [list objectAtIndex:1];
             SBTConnectionsProfileService *profileService_ = [[SBTConnectionsProfileService alloc] init];
@@ -651,6 +658,39 @@
         [progressView dismissWithClickedButtonIndex:100 animated:YES];
     }];
     
+}
+
+/**
+ Get My colleagues
+ */
+- (void) getMyColleagues {
+    NSString *noColleagues = NSLocalizedStringWithDefaultValue(@"NO_COLLEAGUES",
+                              nil,
+                              [NSBundle mainBundle],
+                              @"%@ doesn't have any colleagues",
+                              @"{Profile Name} doesn't have any colleagues");
+    NSString *okLabel = NSLocalizedStringWithDefaultValue(@"OK",
+                                  @"Common",
+                                  [NSBundle mainBundle],
+                                  @"OK",
+                                  @"OK Common label");
+    UIAlertView *progressView = [SBTAcmeUtils showProgressBar];
+    SBTConnectionsProfileService *profileService = [[SBTConnectionsProfileService alloc] init];
+    [profileService getColleaguesWithProfile:self.myProfile parameters:nil success:^(NSMutableArray *list) {
+        if (list != nil) {
+            [self openProfileListViewWithList:list];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:noColleagues, self.myProfile.displayName] delegate:self cancelButtonTitle:nil otherButtonTitles:okLabel, nil];
+            [alert show];
+        }
+        
+        [progressView dismissWithClickedButtonIndex:100 animated:YES];
+    } failure:^(NSError *error) {
+        if (IS_DEBUGGING)
+            [FBLog log:[NSString stringWithFormat:@"%@", [error description]] from:self];
+        
+        [progressView dismissWithClickedButtonIndex:100 animated:YES];
+    }];
 }
 
 /**

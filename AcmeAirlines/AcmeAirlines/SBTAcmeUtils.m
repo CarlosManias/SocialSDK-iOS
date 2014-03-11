@@ -55,7 +55,7 @@
         void (^testBlock)(void (^completionBlock)(void)) = ^(void (^completionBlock)(void)) {
             NSString *username = [SBTCredentialStore loadWithKey:IBM_CREDENTIAL_USERNAME];
             SBTConnectionsProfileService *profileService = [[SBTConnectionsProfileService alloc] init];
-            [profileService getProfile:username success:^(SBTConnectionsProfile *profile) {
+            [profileService getProfile:PHIL_userid success:^(SBTConnectionsProfile *profile) {
                 myProfile = profile;
                 completionBlock();
             } failure:^(NSError *error) {
@@ -926,7 +926,19 @@
         placeHolderImage = [UIImage imageNamed:@"placeholder_image.png"];
     }
     
-    [imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeHolderImage];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+    
+    NSString *username = [SBTCredentialStore loadWithKey:IBM_CREDENTIAL_USERNAME];
+    NSString *password = [SBTCredentialStore loadWithKey:IBM_CREDENTIAL_PASSWORD];
+    NSString *authStr = [NSString stringWithFormat:@"%@:%@", username, password];
+    NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64Encoding]];
+    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+
+    [imageView setImageWithURLRequest:request placeholderImage:placeHolderImage success:nil failure:nil];
+    
+    //[imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeHolderImage];
 }
 
 + (UIAlertView *) showProgressBar {
